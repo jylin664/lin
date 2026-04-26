@@ -1,13 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>我的摄影空间</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.Y. LIN | Photography</title>
+    <style>
+        /* 核心高级感：黑灰配色与精致字体 */
+        body {
+            margin: 0;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            letter-spacing: 2px;
+        }
+
+        /* 顶部导航栏：半透明毛玻璃效果 */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('1.jpg') center/cover no-repeat; /* 自动用第一张图做背景 */
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 200;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .scroll-hint {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #888;
+            animation: bounce 2s infinite;
+        }
+
+        /* 瀑布流布局 */
+        .gallery {
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .photo-card {
+            position: relative;
+            overflow: hidden;
+            background: #1a1a1a;
+            aspect-ratio: 3 / 2;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+            filter: grayscale(20%);
+        }
+
+        /* 悬停特效：缩放与去色恢复 */
+        .photo-card:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+
+        .photo-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .photo-card:hover .photo-info {
+            opacity: 1;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            color: #444;
+            font-size: 0.7rem;
+            border-top: 1px solid #1a1a1a;
+        }
+    </style>
 </head>
-<body style="background-color: #111; color: #eee; text-align: center; font-family: sans-serif; padding-top: 50px;">
-    <h1>我的摄影空间</h1>
-    <div style="margin-top: 30px;">
-        <img src="IMG1.jpeg" style="width: 90%; max-width: 800px; border: 5px solid #222;">
+<body>
+
+<header>
+    <h1>J.Y. LIN</h1>
+    <p>PHOTOGRAPHY PORTFOLIO</p>
+    <div class="scroll-hint">SCROLL TO VIEW</div>
+</header>
+
+<div class="gallery">
+    <div class="photo-card">
+        <img src="IMG1.jpeg" alt="Work 1">
+        <div class="photo-info">
+            <span>CITYSCAPE | 01</span>
+        </div>
     </div>
+
+    </div>
+
+<footer>
+    &copy; 2026 J.Y. LIN. ALL RIGHTS RESERVED.
+</footer>
+
 </body>
 </html>
